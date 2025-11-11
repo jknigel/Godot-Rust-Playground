@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://beoimm6rw7lmy"]
+[gd_scene load_steps=2 format=3 uid="uid://beoimm6rw7lmy"]
 
-[node name="HelloWorld" type="HelloWorld"]
+[ext_resource type="Texture2D" uid="uid://b7iftd2f87reu" path="res://icon.svg" id="1_ig7tw"]
+
+[node name="Sprite2D" type="Player"]
+position = Vector2(561, 305)
+texture = ExtResource("1_ig7tw")
