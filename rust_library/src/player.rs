@@ -50,6 +50,6 @@ impl Player {
         self.angular_speed *= speed_ratio;
         self.speed = new_speed;
     }
-        #[signal]
-        fn speed_increased();
-    }
+    #[signal]
+    fn speed_increased();
+}
