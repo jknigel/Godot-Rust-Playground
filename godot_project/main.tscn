@@ -1,7 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://beoimm6rw7lmy"]
+[gd_scene load_steps=3 format=3 uid="uid://beoimm6rw7lmy"]
 
-[ext_resource type="Texture2D" uid="uid://b7iftd2f87reu" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bu0aytoeb31bw" path="res://player.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://d1w6h845lm5nt" path="res://main.gd" id="2_h2yge"]
 
-[node name="Sprite2D" type="Player"]
-position = Vector2(561, 305)
-texture = ExtResource("1_ig7tw")
+[node name="Main" type="Node"]
+script = ExtResource("2_h2yge")
+
+[node name="Player" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 110.0
+offset_top = 80.0
+offset_right = 235.0
+offset_bottom = 111.0
+text = "Increase Speed"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_power_up_collected"]
