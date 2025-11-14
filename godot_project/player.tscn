@@ -2,6 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://b7iftd2f87reu" path="res://icon.svg" id="1_4flbx"]
 
-[node name="Player" type="Player"]
+[node name="Player" type="Player" groups=["players"]]
 position = Vector2(518, 265)
 texture = ExtResource("1_4flbx")

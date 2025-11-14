@@ -36,7 +36,7 @@ impl ISprite2D for Player {
         self.base_mut().translate(velocity * delta as f32);
     }
 
-    fn input(&mut self, event: Gd<InputEvent>) {
+    /*fn input(&mut self, event: Gd<InputEvent>) {
         // Mouse events
         match event.try_cast::<InputEventMouse>() {
             Ok(e) => {
@@ -46,20 +46,26 @@ impl ISprite2D for Player {
             }
             Err(_) => {}
         }
-    }
+    }*/
 }
 
 #[godot_api]
 impl Player {
     #[func]
-    fn increase_speed(&mut self, amount: f64) {
-        let old_speed = self.speed;
+    pub fn increase_speed(&mut self, amount: f64) {
+        let old_speed = self.speed;  
         let new_speed = old_speed + amount;
+        let speed_ratio: f64;
 
-        let speed_ratio = new_speed / old_speed;
-
-        self.angular_speed *= speed_ratio;
+        if old_speed == 0.0 {
+            self.angular_speed = std::f64::consts::PI;
+        }
+        else {
+            speed_ratio = new_speed / old_speed;
+            self.angular_speed *= speed_ratio;
+        }
         self.speed = new_speed;
+        self.speed = self.speed.max(0.0); // Prevent negative speed
     }
     #[signal]
     fn speed_increased();
