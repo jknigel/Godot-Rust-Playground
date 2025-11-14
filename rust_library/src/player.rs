@@ -1,5 +1,4 @@
-use godot::classes::ISprite2D;
-use godot::classes::Sprite2D;
+use godot::classes::{Sprite2D, ISprite2D, InputEvent, InputEventMouse};
 use godot::prelude::*;
 
 #[derive(GodotClass)]
@@ -35,6 +34,18 @@ impl ISprite2D for Player {
         let rotation = self.base().get_rotation();
         let velocity = Vector2::UP.rotated(rotation) * self.speed as f32;
         self.base_mut().translate(velocity * delta as f32);
+    }
+
+    fn input(&mut self, event: Gd<InputEvent>) {
+        // Mouse events
+        match event.try_cast::<InputEventMouse>() {
+            Ok(e) => {
+                let mouse_position = e.get_position();
+                self.base_mut().set_position(mouse_position);
+                return;
+            }
+            Err(_) => {}
+        }
     }
 }
 
