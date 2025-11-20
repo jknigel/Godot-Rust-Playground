@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsqaymoqqsptk"]
+
+[ext_resource type="PackedScene" uid="uid://bu0aytoeb31bw" path="res://player.tscn" id="1_vjwbq"]
+[ext_resource type="Texture2D" uid="uid://b7iftd2f87reu" path="res://icon.svg" id="2_olyn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wg4te"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olyn7"]
+size = Vector2(126, 126)
+
+[node name="Player_collision" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_vjwbq")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_olyn7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_wg4te")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(658, 266)
+scale = Vector2(0.36510533, 0.36808956)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_olyn7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_olyn7")
+
+[connection signal="area_entered" from="Player" to="Player" method="on_collision_started"]
+[connection signal="area_exited" from="Player" to="Player" method="on_collision_end"]

@@ -1,8 +1,9 @@
 use godot::prelude::*;
-//mod player;
-//mod speed_control_buttons;
-mod player_steamdeck;
-//use player::Player;
+// mod player;
+// mod speed_control_buttons;
+// mod player_steamdeck;
+mod player_collision;
+// use player::Player;
 
 struct MyExtension;
 
