@@ -49,7 +49,7 @@ impl IArea2D for Player {
         }
     }
 
-    fn input(&mut self, event: Gd<InputEvent>) {
+    fn input(&mut self, _event: Gd<InputEvent>) {
         self.keys.iter().for_each(|key| {
             let is_key_pressed = Input::singleton().is_key_pressed(*key);
             self.key_states.insert(*key, is_key_pressed);
