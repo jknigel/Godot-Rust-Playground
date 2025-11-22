@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0l44dih0chih"]
+
+[ext_resource type="PackedScene" uid="uid://bu0aytoeb31bw" path="res://player.tscn" id="1_ehuyv"]
+
+[node name="Dynamic" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_ehuyv")]
+
+[node name="CustomGrid" type="CustomGrid" parent="."]
+offset_right = 91.0
+offset_bottom = 302.0
