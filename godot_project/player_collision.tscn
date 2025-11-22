@@ -28,6 +28,3 @@ texture = ExtResource("2_olyn7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_olyn7")
-
-[connection signal="area_entered" from="Player" to="Player" method="on_collision_started"]
-[connection signal="area_exited" from="Player" to="Player" method="on_collision_end"]

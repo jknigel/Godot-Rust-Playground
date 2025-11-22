@@ -5,6 +5,8 @@ use godot::prelude::*;
 // mod player_collision;
 // mod player_dynamic;
 mod player_char2d;
+mod entry_node;
+mod main_menu;
 mod custom_grid;
 // use player::Player;
 
