@@ -7,6 +7,7 @@ use godot::prelude::*;
 mod player_char2d;
 mod entry_node;
 mod main_menu;
+mod game_node;
 mod custom_grid;
 // use player::Player;
 

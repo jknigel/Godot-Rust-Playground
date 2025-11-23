@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://byqiabf0wsrfv"]
+
+[ext_resource type="Texture2D" uid="uid://b7iftd2f87reu" path="res://icon.svg" id="1_0lcis"]
+[ext_resource type="PackedScene" uid="uid://bu0aytoeb31bw" path="res://player.tscn" id="2_bfnsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qgm2"]
+size = Vector2(126, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cinpu"]
+size = Vector2(128, 128)
+
+[node name="GameNode" type="GameNode"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(573.64685, 461.55774)
+scale = Vector2(7.8851066, 0.36808956)
+texture = ExtResource("1_0lcis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(573.64685, 461.55774)
+scale = Vector2(7.8851066, 0.36808956)
+shape = SubResource("RectangleShape2D_8qgm2")
+
+[node name="Player" parent="." instance=ExtResource("2_bfnsb")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_0lcis")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_cinpu")
